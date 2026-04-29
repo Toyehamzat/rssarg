@@ -15,11 +15,11 @@ func respondWithError(w http.ResponseWriter, code int, msg string) {
 		Error string `json:"error"`
 	}
 
-	responsdWithJSON(w, code, errorResponse{Error: msg})
+	respondWithJSON(w, code, errorResponse{Error: msg})
 
 }
 
-func responsdWithJSON(w http.ResponseWriter, code int, payload interface{}) {
+func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 
 	dat, err := json.Marshal(payload)
 

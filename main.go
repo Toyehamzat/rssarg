@@ -37,7 +37,7 @@ func main() {
 	}
 
 	queries :=database.New(conn)
-	
+
 	apiCfg := &ApiConfig{
 		db: queries,
 	}
@@ -56,6 +56,7 @@ func main() {
 
 	v1Router.Get("/healthz", readinessHandler)
 	v1Router.Get("/errorz", errorHandler)
+	v1Router.Post("/users", apiCfg.handlerCreateUser) 
 
 	router.Mount("/v1", v1Router)
 
